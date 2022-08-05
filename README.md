@@ -1,7 +1,7 @@
 ## dotfiles
 ---
 
-> Nvim
-> Powershell 7
+* Nvim
+* Powershell 7
 
 ---
