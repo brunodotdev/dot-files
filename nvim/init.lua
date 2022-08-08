@@ -1,4 +1,3 @@
--- custom keymappings {{{
 local opts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
@@ -8,8 +7,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- split pane
-map('n', '<C-A-j>', ':split<CR>', opts)
-map('n', '<C-A-l>', ':vsplit<CR>', opts)
+map('n', '<S-down>', ':split new<CR>', opts)
+map('n', '<S-right>', ':vsplit new<CR>', opts)
 
 -- scroll window
 map('n', 'K', '{', opts)
@@ -26,8 +25,8 @@ map('n', 'H', '^', opts)
 map('n', 'L', '$', opts)
 
 -- tabs
-map('n', '<leader>e', ':tabedit<CR>', opts)
-map('n', '<leader>q', ':tabclose<CR>', opts)
+map('n', '<leader>te', ':tabedit<CR>', opts)
+map('n', '<leader>tq', ':tabclose<CR>', opts)
 map('n', '<Tab>', ':tabnext<CR>', opts)
 map('n', '<S-Tab>', ':tabprev<CR>', opts)
 
@@ -41,16 +40,14 @@ map('v', '>', '>gv', opts)
 -- better selection mode
 map('v', 'H', '^', opts)
 map('v', 'L', '$h', opts)
-map('v', '<C-h>', 'w', opts)
-map('v', '<C-l>', 'b', opts)
--- }}}
--- basic options {{{
+
+-- local options
 local set = vim.opt
 set.autoindent = true
 set.backup = false
 set.clipboard = 'unnamedplus'
 set.compatible = false
-set.completeopt = {'menuone', 'noinsert', 'noselect'}
+set.completeopt = { 'menuone', 'noinsert', 'noselect' }
 set.cursorline = true
 set.expandtab = true
 set.fileencoding = 'utf-8'
@@ -80,15 +77,16 @@ set.termguicolors = true
 set.updatetime = 300
 set.winblend = 0
 set.wrap = false
+
 vim.cmd [[
     filetype plugin indent on
     syntax enable
     autocmd InsertLeave * set nopaste
 ]]
--- }}}
--- plugins {{{
+
+-- plugins
 local installed, _ = pcall(require, 'packer')
 if not installed then return end
 
 require 'plugins'
--- }}}
+
