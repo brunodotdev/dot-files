@@ -1,3 +1,3 @@
 ## dotfiles
 
-* [Nvim](https://github.com/neovim/neovim)
+* [Neovim](https://github.com/neovim/neovim)
