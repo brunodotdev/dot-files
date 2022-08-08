@@ -1,7 +1,4 @@
 ## dotfiles
 ---
 
-* Nvim
-* Powershell 7
-
----
+* [Nvim](https://github.com/neovim/neovim)
