@@ -15,16 +15,10 @@ return packer.startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lualine/lualine.nvim'
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-        },
-        tag = 'nightly'
-    }
+    use 'kyazdani42/nvim-web-devicons'
     use {
         'nvim-treesitter/nvim-treesitter',
-        run=':TSUpate'
+        run = ':TSUpate'
     }
     -- LSP plugins
     use 'neovim/nvim-lspconfig'

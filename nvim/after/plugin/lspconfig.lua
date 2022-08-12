@@ -1,4 +1,7 @@
-local opts = {noremap = true, silent = true}
+local installed, nvim_lsp = pcall(require, 'lspconfig')
+if not installed then return end
+
+local opts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 map('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 map('n', '<leader>p', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -15,10 +18,11 @@ local on_attach = function(client, bufnr)
     buf(bufnr, 'n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
     if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_command [[augroup Format]]
-        vim.api.nvim_command [[autocmd! * <buffer>]]
-        vim.api.nvim_command [[autocmd BufWritePre <buffer>lua vim.lsp.buf.formatting_seq_sync()]]
-        vim.api.nvim_command [[augroup END]]
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("Format", { clear = true }),
+            buffer = bufnr,
+            callback = function() vim.lsp.buf.formatting_seq_sync() end
+        })
     end
 end
 
@@ -37,6 +41,25 @@ lsp_installer.setup({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
     vim.lsp.protocol.make_client_capabilities()
 )
-local lspconfig = require('lspconfig')
-lspconfig.sumneko_lua.setup {on_attach = on_attach, capabilities = capabilities}
-lspconfig.powershell_es.setup {on_attach = on_attach, capabilities = capabilities}
+nvim_lsp.sumneko_lua.setup {
+    on_attach = on_attach,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false
+            },
+        },
+    },
+    capabilities = capabilities
+}
+
+nvim_lsp.pyright.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+-- nvim_lsp.powershell_es.setup {on_attach = on_attach, capabilities = capabilities}
