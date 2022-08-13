@@ -10,16 +10,20 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Utility plugins
+    use 'akinsho/nvim-bufferline.lua'
+    use 'norcalli/nvim-colorizer.lua'
     use 'windwp/nvim-autopairs'
-    use 'lukas-reineke/indent-blankline.nvim'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lualine/lualine.nvim'
+    use 'nvim-telescope/telescope.nvim'
+    use 'nvim-telescope/telescope-file-browser.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpate'
     }
+
     -- LSP plugins
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
