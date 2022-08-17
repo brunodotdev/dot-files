@@ -10,6 +10,12 @@ vim.g.maplocalleader = ' '
 map('n', '<S-down>', ':split new<CR>', opts)
 map('n', '<S-right>', ':vsplit new<CR>', opts)
 
+-- resize pane
+map('n', '>', '<C-w>>', opts)
+map('n', '<', '<C-w><', opts)
+map('n', '+', '<C-w>+', opts)
+map('n', '_', '<C-w>-', opts)
+
 -- navigation through panes
 map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-j>', '<C-w>j', opts)
@@ -21,17 +27,23 @@ map('n', 'H', '^', opts)
 map('n', 'L', '$', opts)
 
 -- scroll window up & down
-map('n', 'K', '<C-U>', opts)
-map('n', 'J', '<C-D>', opts)
+map('n', 'K', '<C-y>', opts)
+map('n', 'J', '<C-e>', opts)
 
 map('n', '=', '<C-a>', opts)
 map('n', '-', '<C-x>', opts)
 
--- tabs
-map('n', '<leader>te', ':tabedit<CR>', opts)
-map('n', '<leader>tq', ':tabclose<CR>', opts)
-map('n', '<Tab>', ':tabnext<CR>', opts)
-map('n', '<S-Tab>', ':tabprev<CR>', opts)
+--select all
+map('n', '<C-a>', 'ggVG', opts)
+
+-- close pane
+map('n', '<C-w>', ':q<CR>', opts)
+
+-- save
+map('n', '<C-s>', ':w<CR>', opts)
+
+-- undo
+map('n', '<C-z>', 'u', opts)
 
 -- delete word
 map('i', '<C-H>', '<C-w>', opts)
@@ -44,4 +56,5 @@ map('v', '>', '>gv', opts)
 map('v', 'H', '^', opts)
 map('v', 'L', '$h', opts)
 
-map('n', '<C-c>', '"*y', opts)
+-- copy to clipboard
+map('v', '<C-C>', '"+y', opts)

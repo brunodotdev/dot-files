@@ -31,6 +31,7 @@ set.swapfile = false
 set.tabstop = 4
 set.termguicolors = true
 set.updatetime = 300
+set.whichwrap:append "hl"
 set.winblend = 0
 set.wrap = false
 

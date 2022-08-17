@@ -12,22 +12,22 @@ bufferline.setup({
     },
     highlights = {
         separator = {
-            guifg = '',
-            guibg = '',
+            fg = '',
+            bg = '',
         },
         separator_selected = {
-            guifg = '',
+            fg = '',
         },
         background = {
-            guifg = '',
-            guibg = '',
+            fg = '',
+            bg = '',
         },
         buffer_selected = {
-            guifg = '',
-            guibg = '',
+            fg = '',
+            bg = '',
         },
         fill = {
-            guibg = '',
+            bg = '',
         },
     },
 })
