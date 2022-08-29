@@ -1,4 +1,11 @@
--- local options
+vim.cmd [[
+    colorscheme custom
+    filetype plugin indent on
+    syntax enable
+    autocmd InsertLeave * set nopaste
+]]
+
+-- general options
 local set = vim.opt
 set.autoindent = true
 set.backup = false
@@ -34,9 +41,3 @@ set.updatetime = 300
 set.whichwrap:append "hl"
 set.winblend = 0
 set.wrap = false
-
-vim.cmd [[
-    filetype plugin indent on
-    syntax enable
-    autocmd InsertLeave * set nopaste
-]]

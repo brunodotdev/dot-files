@@ -1,15 +1,15 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system({
-        'git',
-        'clone',
-        '--depth',
-        '1',
-        'https://github.com/wbthomason/packer.nvim',
-        install_path,
-    })
-    vim.cmd([[packadd packer.nvim]])
+  PACKER_BOOTSTRAP = fn.system({
+    'git',
+    'clone',
+    '--depth',
+    '1',
+    'https://github.com/wbthomason/packer.nvim',
+    install_path,
+  })
+  vim.cmd([[packadd packer.nvim]])
 end
 
 vim.cmd [[
@@ -22,37 +22,48 @@ vim.cmd [[
 local installed, packer = pcall(require, 'packer')
 if not installed then return end
 
+packer.init({
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'rounded' })
+    end,
+  }
+})
+
 return packer.startup(function(use)
-    -- Packer itself
-    use 'wbthomason/packer.nvim'
+  -- Packer itself
+  use 'wbthomason/packer.nvim'
 
-    -- Utility plugins
-    use 'akinsho/nvim-bufferline.lua'
-    use 'norcalli/nvim-colorizer.lua'
-    use 'windwp/nvim-autopairs'
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-lualine/lualine.nvim'
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-file-browser.nvim'
-    use 'kyazdani42/nvim-web-devicons'
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+  -- Utility plugins
+  use 'akinsho/nvim-bufferline.lua'
+  use 'norcalli/nvim-colorizer.lua'
+  use 'windwp/nvim-autopairs'
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
-    -- LSP plugins
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
+  -- LSP plugins
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
 
-    -- Completion plugins
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "L3MON4D3/LuaSnip"
+  -- Completion plugins
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "L3MON4D3/LuaSnip"
 
-    if PACKER_BOOTSTRAP then
-        require('packer').sync()
-    end
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
 
 end)

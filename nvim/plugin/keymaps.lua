@@ -7,8 +7,8 @@ vim.g.maplocalleader = ' '
 
 -- PANE
 -- split
-keymap.set('n', '<leader>ss', '<CMD>split<CR><CMD>e .<CR>', { silent = true })
-keymap.set('n', '<leader>sv', '<CMD>vsplit<CR><CMD>e .<CR>', { silent = true })
+keymap.set('n', '<leader>ss', '<Cmd>split<CR><Cmd>e .<CR>', { silent = true })
+keymap.set('n', '<leader>sv', '<Cmd>vsplit<CR><Cmd>e .<CR>', { silent = true })
 
 -- resize
 keymap.set('n', '>', '<C-w>>')
@@ -55,12 +55,6 @@ keymap.set('n', 'yy', '"_y"')
 keymap.set('v', 'y', '"_y"')
 keymap.set('n', '<C-C>', '"+yy')
 keymap.set('v', '<C-C>', '"+y')
-
--- cut text
-keymap.set('n', 'd', '"_d')
-keymap.set('v', 'd', '"_d')
-keymap.set('n', '<C-X>', 'dd')
-keymap.set('v', '<C-X>', 'd')
 
 -- indent and unindent text
 keymap.set('v', '<TAB>', '>gv')
