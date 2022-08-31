@@ -5,10 +5,19 @@ keymap.set('', '<Space>', '<Nop>')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- source command
+keymap.set('n', '<leader>so', '<Cmd>%so<CR><Cmd>echo "Changes applied!"<CR>')
+
+-- COMMAND LINE
+keymap.set('c', '<C-j>', '<Down>')
+keymap.set('c', '<C-k>', '<Up>')
+keymap.set('c', '<C-h>', '<Left>')
+keymap.set('c', '<C-l>', '<Right>')
+
 -- PANE
--- split
-keymap.set('n', '<leader>ss', '<Cmd>split<CR><Cmd>e .<CR>', { silent = true })
-keymap.set('n', '<leader>sv', '<Cmd>vsplit<CR><Cmd>e .<CR>', { silent = true })
+-- split horizontally and vertically
+keymap.set('n', '<leader>sj', '<Cmd>split<CR><Cmd>e .<CR>', { silent = true })
+keymap.set('n', '<leader>sl', '<Cmd>vsplit<CR><Cmd>e .<CR>', { silent = true })
 
 -- resize
 keymap.set('n', '>', '<C-w>>')
@@ -23,17 +32,17 @@ keymap.set('n', '<leader>k', '<C-w>k')
 keymap.set('n', '<leader>l', '<C-w>l')
 
 -- NAVIGATION
--- beginning and EOL
-keymap.set('n', '<C-h>', '^')
-keymap.set('n', '<C-l>', '$')
+-- beginning and EOL, up and down
+keymap.set('n', 'K', 'gg')
+keymap.set('n', 'J', 'G')
+keymap.set('n', 'H', '^')
+keymap.set('n', 'L', '$')
 
--- scroll up & down
-keymap.set('n', 'K', '<C-y>')
-keymap.set('n', 'J', '<C-e>')
-
--- scroll left & right
-keymap.set('n', 'H', 'zh')
-keymap.set('n', 'L', 'zl')
+-- scroll up, down, left, right
+keymap.set('n', '<C-k>', '<C-y>')
+keymap.set('n', '<C-j>', '<C-e>')
+keymap.set('n', '<C-h>', 'zh')
+keymap.set('n', '<C-l>', 'zl')
 
 -- TEXT EDITOR
 -- select all
@@ -51,11 +60,11 @@ keymap.set('v', 'H', 'b')
 keymap.set('v', 'L', 'e')
 
 -- copy text
-keymap.set('n', 'yy', '"_y"')
-keymap.set('v', 'y', '"_y"')
 keymap.set('n', '<C-C>', '"+yy')
 keymap.set('v', '<C-C>', '"+y')
 
 -- indent and unindent text
+keymap.set('n', '<TAB>', '>>')
+keymap.set('n', '<S-TAB>', '<<')
 keymap.set('v', '<TAB>', '>gv')
 keymap.set('v', '<S-TAB>', '<gv')

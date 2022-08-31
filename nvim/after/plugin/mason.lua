@@ -16,5 +16,5 @@ local installed_2, mason_lsp = pcall(require, 'mason-lspconfig')
 if not installed_2 then return end
 
 mason_lsp.setup {
-  ensure_installed = {}
+  ensure_installed = { 'sumneko_lua', 'pyright' }
 }
