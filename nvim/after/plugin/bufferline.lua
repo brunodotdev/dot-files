@@ -1,5 +1,5 @@
-local installed, bufferline = pcall(require, 'bufferline')
-if not installed then return end
+local has_bufferline, bufferline = pcall(require, 'bufferline')
+if not has_bufferline then return end
 
 bufferline.setup({
   options = {
@@ -9,6 +9,8 @@ bufferline.setup({
     show_buffer_close_icons = true,
     show_close_icon = false,
     color_icons = true,
+    diagnostics = "nvim_lsp",
+    diagnostics_update_in_insert = true,
   },
   --   highlights = {
   --     separator = {

@@ -52,7 +52,6 @@ return packer.startup(function(use)
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-    'glepnir/lspsaga.nvim',
   }
 
   -- Completion plugins

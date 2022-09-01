@@ -1,5 +1,5 @@
-local installed, lualine = pcall(require, 'lualine')
-if not installed then return end
+local has_lualine, lualine = pcall(require, 'lualine')
+if not has_lualine then return end
 
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80

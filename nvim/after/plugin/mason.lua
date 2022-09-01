@@ -1,5 +1,5 @@
-local installed, mason = pcall(require, 'mason')
-if not installed then return end
+local has_mason, mason = pcall(require, 'mason')
+if not has_mason then return end
 
 mason.setup({
   ui = {
@@ -12,8 +12,8 @@ mason.setup({
   }
 })
 
-local installed_2, mason_lsp = pcall(require, 'mason-lspconfig')
-if not installed_2 then return end
+local has_mason_lsp, mason_lsp = pcall(require, 'mason-lspconfig')
+if not has_mason_lsp then return end
 
 mason_lsp.setup {
   ensure_installed = { 'sumneko_lua', 'pyright' }

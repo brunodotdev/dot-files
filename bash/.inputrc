@@ -1,0 +1,3 @@
+# Bash Tweaks
+set completion-ignore-case On
+"\C-H": shell-backward-kill-word
