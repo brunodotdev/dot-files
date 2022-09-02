@@ -3,3 +3,4 @@ class Foo:
         self.a = a
         self.b = b
 
+

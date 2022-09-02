@@ -16,6 +16,7 @@ set.expandtab = true
 set.fileencoding = 'utf-8'
 set.foldmethod = 'marker'
 set.hlsearch = true
+set.guicursor = 'n-v-c-sm-i:block'
 set.lazyredraw = true
 set.mouse = 'a'
 set.number = true

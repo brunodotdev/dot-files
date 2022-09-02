@@ -18,3 +18,5 @@ if not has_mason_lsp then return end
 mason_lsp.setup {
   ensure_installed = { 'sumneko_lua', 'pyright' }
 }
+
+require("lsp.servers")
