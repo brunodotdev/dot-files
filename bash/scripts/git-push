@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "The current folder will be pushed to Github's repository"
+
+git add .
+
+read -p "Write a message to commit changes: " commit
+git commit -m "$commit"
+
+echo ""
+read -p "To which branch should these changes be pushed to? [Default: main] " branch
+
+if [[ "$branch" == "" ]]; then
+    branch="main"
+fi
+
+echo "Changes will be pushed to $branch."
+xclip -selection clipboard <<< $(cat ~/.token)
+git push -u origin $branch
