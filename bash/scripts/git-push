@@ -15,5 +15,4 @@ if [[ "$branch" == "" ]]; then
 fi
 
 echo "Changes will be pushed to $branch."
-xclip -selection clipboard <<< $(cat ~/.token)
 git push -u origin $branch
