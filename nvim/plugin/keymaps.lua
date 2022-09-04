@@ -10,12 +10,14 @@ vim.g.maplocalleader = ' '
 keymap.set('n', '<leader>so', '<Cmd>%so<CR><Cmd>echo "SOURCED!"<CR>', opts)
 
 -- COMMAND LINE
--- I am remapping these because I don't like the default <Shift-j>
+-- A bunch of remapping for "J" because I don't like the default one
 keymap.set('n', 'J', ':', opts, opts)
-keymap.set('n', 'Jh', ':h', opts)
+keymap.set('n', 'Jh', ':h ', opts)
 keymap.set('n', 'Js', ':%s/', opts)
 keymap.set('n', 'Jf', '/', opts)
-keymap.set('n', 'Jw', '<Cmd>w<CR><Cmd>echo "FILE SAVED"<CR>', opts)
+keymap.set('n', 'Jj', ':+', opts)
+keymap.set('n', 'Jk', ':-', opts)
+keymap.set('n', 'Jw', '<Cmd>w<CR><Cmd>echo "SAVED!"<CR>', opts)
 keymap.set('n', 'Jq', '<Cmd>q!<CR>', opts)
 keymap.set('n', 'Je', '<Cmd>e .<CR>', opts)
 
@@ -75,7 +77,5 @@ keymap.set('n', '<C-C>', '"+yy', opts)
 keymap.set('v', '<C-C>', '"+y', opts)
 
 -- indent and unindent text
-keymap.set('n', '<TAB>', '>>', opts)
-keymap.set('n', '<S-TAB>', '<<', opts)
-keymap.set('v', '<TAB>', '>gv', opts)
-keymap.set('v', '<S-TAB>', '<gv', opts)
+keymap.set('v', '<Tab>', '>gv', opts)
+keymap.set('v', '<S-Tab>', '<gv', opts)
