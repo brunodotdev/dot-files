@@ -19,4 +19,5 @@ mason_lsp.setup {
   ensure_installed = { 'sumneko_lua', 'pyright' }
 }
 
+-- Servers configs
 require("lsp.servers")

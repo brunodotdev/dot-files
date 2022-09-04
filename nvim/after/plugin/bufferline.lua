@@ -12,26 +12,6 @@ bufferline.setup({
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = true,
   },
-  --   highlights = {
-  --     separator = {
-  --       fg = '',
-  --       bg = '',
-  --     },
-  --     separator_selected = {
-  --       fg = '',
-  --     },
-  --     background = {
-  --       fg = '',
-  --       bg = '',
-  --     },
-  --     buffer_selected = {
-  --       fg = '',
-  --       bg = '',
-  --     },
-  --     fill = {
-  --       bg = '',
-  --     },
-  --   },
 })
 
 vim.keymap.set('n', '<leader>t', '<Cmd>tabedit<CR><Cmd>e .<CR>', { silent = true })
