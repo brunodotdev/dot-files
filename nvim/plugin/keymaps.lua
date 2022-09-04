@@ -17,9 +17,6 @@ keymap.set('n', 'Js', ':%s/', opts)
 keymap.set('n', 'Jf', '/', opts)
 keymap.set('n', 'Jj', ':+', opts)
 keymap.set('n', 'Jk', ':-', opts)
-keymap.set('n', 'Jw', '<Cmd>w<CR><Cmd>echo "SAVED!"<CR>', opts)
-keymap.set('n', 'Jq', '<Cmd>q!<CR>', opts)
-keymap.set('n', 'Je', '<Cmd>e .<CR>', opts)
 
 -- delete word backward
 keymap.set('c', '<C-h>', '<C-w>', opts)
