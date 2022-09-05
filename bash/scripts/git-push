@@ -17,5 +17,5 @@ if [[ "$2" == "" ]]; then
   git push -u origin $branch
 fi
 
-echo "Changes will be pushed to $2."
+echo "[+] Changes will be pushed to $2."
 git push -u origin $2
