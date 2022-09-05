@@ -17,6 +17,10 @@ keymap.set('n', 'Js', ':%s/', opts)
 keymap.set('n', 'Jf', '/', opts)
 keymap.set('n', 'Jj', ':+', opts)
 keymap.set('n', 'Jk', ':-', opts)
+keymap.set('n', 'Jw', '<Cmd>w<CR><Cmd>echo "SAVED!"<CR>')
+keymap.set('n', 'Je', '<Cmd>e .<CR>')
+keymap.set('n', 'Jq', '<Cmd>q!<CR>')
+
 
 -- delete word backward
 keymap.set('c', '<C-h>', '<C-w>', opts)
@@ -74,5 +78,7 @@ keymap.set('n', '<C-C>', '"+yy', opts)
 keymap.set('v', '<C-C>', '"+y', opts)
 
 -- indent and unindent text
+keymap.set('n', '<leader><Tab>', '>>', opts)
+keymap.set('n', '<leader><S-Tab>', '<<', opts)
 keymap.set('v', '<Tab>', '>gv', opts)
 keymap.set('v', '<S-Tab>', '<gv', opts)

@@ -1,18 +1,19 @@
 #!/bin/bash
 
-echo "The current folder will be pushed to Github's repository"
-
-git add .
-
-read -p "Write a message to commit changes: " commit
-git commit -m "$commit"
-
-echo ""
-read -p "To which branch should these changes be pushed to? [Default: main] " branch
-
-if [[ "$branch" == "" ]]; then
-    branch="main"
+if [[ -z $1 ]]; then
+  echo "[-] Please supply a commit message followed by the branch to push to.\
+            e.g. 'message to commit' 'main'"
 fi
 
-echo "Changes will be pushed to $branch."
-git push -u origin $branch
+echo "[+] The current folder will be pushed to Github's repository"
+
+git add .
+git commit -m "$@"
+
+if [[ "$2" == "" ]]; then
+  "[+] Changes will be pushed to main"
+  git push -u origin main
+fi
+
+echo "Changes will be pushed to $2."
+git push -u origin $2
