@@ -42,5 +42,6 @@ set.termguicolors = true
 set.timeoutlen = 300
 set.updatetime = 50
 set.whichwrap:append "hl"
+set.wildmenu = true
 set.winblend = 0
 set.wrap = false

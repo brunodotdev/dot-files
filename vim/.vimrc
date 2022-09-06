@@ -33,10 +33,3 @@ set confirm
 let mapleader=" "
 nnoremap H ^
 nnoremap L $
-
-nnoremap j <Down>
-nnoremap k <Up>
-nnoremap h <Left>
-nnoremap l <Right>
-
-vnoremap y "*y
