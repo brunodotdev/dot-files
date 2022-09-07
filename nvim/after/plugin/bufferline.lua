@@ -15,6 +15,6 @@ bufferline.setup({
 })
 
 vim.keymap.set('n', '<leader>t', '<Cmd>tabedit<CR><Cmd>e .<CR>', { silent = true })
-vim.keymap.set('n', '<leader>w', '<Cmd>tabclose<CR>', { silent = true })
+vim.keymap.set('n', '<leader>q', '<Cmd>tabclose<CR>', { silent = true })
 vim.keymap.set('n', '<leader>n', '<Cmd>BufferLineCycleNext<CR>', {})
 vim.keymap.set('n', '<leader>p', '<Cmd>BufferLineCyclePrev<CR>', {})

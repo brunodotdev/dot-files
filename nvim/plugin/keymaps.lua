@@ -21,7 +21,6 @@ keymap.set('n', 'Jw', '<Cmd>w<CR><Cmd>echo "SAVED!"<CR>')
 keymap.set('n', 'Je', '<Cmd>e .<CR>')
 keymap.set('n', 'Jq', '<Cmd>q!<CR>')
 
-
 -- delete word backward
 keymap.set('c', '<C-h>', '<C-w>', opts)
 
@@ -31,10 +30,10 @@ keymap.set('n', '<leader>sj', '<Cmd>split<CR><Cmd>e .<CR>', { noremap = true, si
 keymap.set('n', '<leader>sl', '<Cmd>vsplit<CR><Cmd>e .<CR>', { noremap = true, silent = true })
 
 -- resize pane
-keymap.set('n', '>', '<C-w>>', opts)
-keymap.set('n', '<', '<C-w><', opts)
-keymap.set('n', '+', '<C-w>+', opts)
-keymap.set('n', '_', '<C-w>-', opts)
+keymap.set('n', '<leader>.', '<C-w>>5', opts)
+keymap.set('n', '<leader>,', '<C-w><5', opts)
+keymap.set('n', '<leader>=', '<C-w>+5', opts)
+keymap.set('n', '<leader>-', '<C-w>-5', opts)
 
 -- switch between pane
 keymap.set('n', '<leader>h', '<C-w>h', opts)
@@ -78,7 +77,5 @@ keymap.set('n', '<C-C>', '"+yy', opts)
 keymap.set('v', '<C-C>', '"+y', opts)
 
 -- indent and unindent text
-keymap.set('n', '<leader><Tab>', '>>', opts)
-keymap.set('n', '<leader><S-Tab>', '<<', opts)
 keymap.set('v', '<Tab>', '>gv', opts)
 keymap.set('v', '<S-Tab>', '<gv', opts)
