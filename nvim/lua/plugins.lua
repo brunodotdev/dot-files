@@ -58,14 +58,15 @@ return packer.startup(function(use)
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
+    'jose-elias-alvarez/null-ls.nvim',
   }
 
   -- Completion plugins
   use {
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-nvim-lsp",
-    "L3MON4D3/LuaSnip",
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-nvim-lsp',
+    'L3MON4D3/LuaSnip',
   }
 
   if PACKER_BOOTSTRAP then
