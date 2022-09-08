@@ -35,16 +35,22 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Utility plugins
-  use 'akinsho/nvim-bufferline.lua'
-  use 'norcalli/nvim-colorizer.lua'
-  use 'windwp/nvim-autopairs'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+      'akinsho/nvim-bufferline.lua',
+      {
+          'akinsho/toggleterm.lua',
+          tag = '*'
+      },
+      'norcalli/nvim-colorizer.lua',
+      'windwp/nvim-autopairs',
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-lualine/lualine.nvim',
+      'kyazdani42/nvim-web-devicons',
+      {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+      },
   }
 
   -- LSP plugins
