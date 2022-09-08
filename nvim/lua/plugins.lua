@@ -36,21 +36,21 @@ return packer.startup(function(use)
 
   -- Utility plugins
   use {
-      'akinsho/nvim-bufferline.lua',
-      {
-          'akinsho/toggleterm.lua',
-          tag = '*'
-      },
-      'norcalli/nvim-colorizer.lua',
-      'windwp/nvim-autopairs',
-      'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim',
-      'nvim-lualine/lualine.nvim',
-      'kyazdani42/nvim-web-devicons',
-      {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-      },
+    'akinsho/nvim-bufferline.lua',
+    {
+      'akinsho/toggleterm.nvim',
+      tag = '*'
+    },
+    'norcalli/nvim-colorizer.lua',
+    'windwp/nvim-autopairs',
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-lualine/lualine.nvim',
+    'kyazdani42/nvim-web-devicons',
+    {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+    },
   }
 
   -- LSP plugins

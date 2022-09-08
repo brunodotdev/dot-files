@@ -5,21 +5,6 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
--- local function window()
---   return vim.api.nvim_win_get_tabpage(0)
--- end
---
--- local tabname = {
---   'filename',
---   filename_status = true, -- displays file status (readonly status, modified status)
---   path = 3, -- 0: file name only, 1: relative path, 2: absolute path, 3: absolute path wiht tilde
---   symbols = {
---     modified = ' ✓',
---     readonly = ' ✗',
---     unnamed = 'New file ➜',
---   }
--- }
-
 local diagnostics = {
   'diagnostics',
   sources = { 'nvim_diagnostic' },

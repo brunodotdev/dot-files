@@ -71,7 +71,7 @@ loadHighlights({
   Normal = { Normal },
   NormalFloat = { Normal },
   Border = { Border },
-  FloatBorder = { Border },
+  FloatBorder = { FloatBackground },
   Decoration = { Orange },
   Hidden = { Grey3 },
   Path = { Blue },
@@ -104,7 +104,7 @@ loadHighlights({
   StatusLine = { Normal },
   StatusLineNC = { Hidden },
   WinBar = { Normal },
-  WinBarSep = { Decoration, Grey1 },
+  WinBarSep = { Decoration, Grey3 },
   WinBarPath = { Grey5, Grey1 },
   IncSearch = { Green, "bold,underline" },
   Search = { Green, "bold,underline" },
@@ -132,7 +132,7 @@ loadHighlights({
   NotificationInfo = { Normal, FloatBackground },
   NotificationError = { Error, FloatBackground },
   NotificationWarning = { Warning, FloatBackground },
-  WinSeparator = { Grey2 },
+  WinSeparator = { Border },
 
   -- General
   Boolean = { Val },

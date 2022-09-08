@@ -25,6 +25,8 @@ set.pumheight = 10
 set.relativenumber = true
 set.ruler = false
 set.scrolloff = 10
+set.shiftwidth = 2
+set.shortmess:append "c"
 set.showcmd = false
 set.showmatch = false
 set.showtabline = 1
@@ -32,14 +34,12 @@ set.sidescrolloff = 10
 set.signcolumn = 'yes'
 set.smartcase = true
 set.smartindent = true
-set.shiftwidth = 2
-set.shortmess:append "c"
 set.splitbelow = true
 set.splitright = true
 set.swapfile = false
 set.tabstop = 2
 set.termguicolors = true
-set.timeoutlen = 300
+set.timeoutlen = 250
 set.updatetime = 50
 set.whichwrap:append "hl"
 set.wildmenu = true
