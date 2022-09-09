@@ -20,4 +20,4 @@ mason_lsp.setup {
 }
 
 -- Servers configs
-require("lsp.servers")
+require("mrwynaut.lsp.servers")

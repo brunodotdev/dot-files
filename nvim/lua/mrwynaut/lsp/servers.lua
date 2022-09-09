@@ -6,8 +6,8 @@ lspconfig.util.default_config = vim.tbl_extend(
   "force",
   lspconfig.util.default_config,
   {
-    on_attach = require("lsp.handlers").on_attach,
-    capabilities = require("lsp.handlers").capabilities,
+    on_attach = require("mrwynaut.lsp.handlers").on_attach,
+    capabilities = require("mrwynaut.lsp.handlers").capabilities,
   }
 )
 
