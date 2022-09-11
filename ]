@@ -26,7 +26,7 @@ nnoremap("<Left>", "zh")
 nnoremap("<Left>", "zl")
 
 nnoremap("<leader>d", "\"_diw")
-nnoremap("<leader>c", "\"_diw")
+nnoremap("<leader>si", "\"_diw")
 
 -- copy to clipboard
 nnoremap("<leader>y", "\"+yy")
