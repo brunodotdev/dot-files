@@ -17,6 +17,7 @@ nnoremap("<leader>j", "<C-w>j")
 nnoremap("<leader>k", "<C-w>k")
 nnoremap("<leader>l", "<C-w>l")
 nnoremap("<leader>a", "ggVG")
+nnoremap("<leader>e", "<Cmd>Ex<CR>")
 
 -- scrolling
 nnoremap("<Down>", "<C-e>")
@@ -44,6 +45,9 @@ nnoremap("H", "^")
 nnoremap("L", "$")
 vnoremap("H", "^")
 vnoremap("L", "$h")
+
+nnoremap("J", "}")
+nnoremap("K", "{")
 
 -- move text up and down
 vnoremap("<c-j>", ":m '>+1<cr>gv=gv")

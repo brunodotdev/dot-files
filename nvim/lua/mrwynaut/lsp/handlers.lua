@@ -52,11 +52,20 @@ M.on_attach = function(client, bufnr)
   buf(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf(bufnr, 'n', 'gh', '<cmd>lua vim.diagnostic.open_float({border = "rounded"})<CR>', opts)
 
+  local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup_format,
+      buffer = 0,
+      callback = function() vim.lsp.buf.formatting_seq_sync() end
+    })
+  end
+
 end
 
 M.capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
-
 
 return M

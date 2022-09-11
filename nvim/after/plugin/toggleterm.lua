@@ -3,10 +3,11 @@ if not has_toggleterm then return end
 
 toggleterm.setup {
   open_mapping = [[<leader>\]],
-  direction = 'float',
+  direction = 'horizontal',
   float_opts = {
     border = 'rounded',
   },
+  close_on_exit = true,
 }
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
