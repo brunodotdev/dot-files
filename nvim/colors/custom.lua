@@ -1,4 +1,3 @@
-
 function ConstructColor(colour)
   return { gui = colour }
 end
@@ -22,6 +21,33 @@ local DarkRed = ConstructColor("#3F0001")
 local FloatBackground = ConstructColor("#132434")
 local Background = ConstructColor("NONE")
 
+local function setHighlight(group, args)
+  local fg = args[1]
+  local bg = Background
+  local attrs
+  if type(args[2]) == "table" then
+    bg = args[2]
+    if type(args[3]) == "string" then
+      attrs = args[3]
+    end
+  elseif type(args[2]) == "string" then
+    attrs = args[2]
+  end
+  local args = { fg = fg.gui, bg = bg.gui }
+  if attrs then
+    for val in vim.gsplit(attrs, ",") do
+      args[val] = true
+    end
+  end
+  vim.api.nvim_set_hl(0, group, args)
+end
+
+local function loadHighlights(highlights)
+  for group, groupArgs in pairs(highlights) do
+    setHighlight(group, groupArgs)
+  end
+end
+
 local Normal = Grey5
 local Border = Grey3
 local Decoration = Orange
@@ -40,10 +66,8 @@ local Warning = Yellow
 local Info = Cyan
 local Error = Red
 
-local set = require("mrwynaut.highlights")
-
 -- For reference elsewhere
-set.Highlights({
+loadHighlights({
   Normal = { Normal },
   NormalFloat = { Normal },
   Border = { Border },
@@ -155,4 +179,3 @@ set.Highlights({
   CmpItemKindKeyword = { Violet },
 
 })
-
