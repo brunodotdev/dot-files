@@ -39,9 +39,9 @@ lualine.setup({
     globalstatus = false,
   },
   sections = {
-    lualine_a = { "mode" },
-    lualine_b = { branch, diff },
-    lualine_c = {},
+    lualine_a = { "filename" },
+    lualine_b = { "mode" },
+    lualine_c = { branch, diff },
     lualine_x = { "encoding" },
     lualine_y = { diagnostics },
     lualine_z = {},

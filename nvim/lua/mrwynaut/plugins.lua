@@ -36,7 +36,7 @@ return packer.startup(function(use)
 
   -- Utility plugins
   use {
-    'akinsho/nvim-bufferline.lua',
+    -- 'akinsho/nvim-bufferline.lua',
     {
       'akinsho/toggleterm.nvim',
       tag = '*'
