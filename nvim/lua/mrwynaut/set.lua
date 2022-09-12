@@ -25,11 +25,12 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.writebackup = false
 
 vim.opt.ignorecase = true
 
 vim.opt.updatetime = 50
-vim.opt.timeoutlen = 150
+vim.opt.timeoutlen = 250
 vim.opt.lazyredraw = true
 
 vim.opt.splitbelow = true
