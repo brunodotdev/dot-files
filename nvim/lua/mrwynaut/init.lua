@@ -4,6 +4,8 @@ require("mrwynaut.keymaps")
 require("mrwynaut.lsp")
 require("mrwynaut.highlights")
 
+vim.cmd [[ colorscheme custom_solarized ]]
+
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
