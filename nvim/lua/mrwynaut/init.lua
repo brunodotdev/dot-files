@@ -1,6 +1,8 @@
 require("mrwynaut.plugins")
-require("mrwynaut.set")
+require("mrwynaut.options")
+require("mrwynaut.keymaps")
 require("mrwynaut.lsp")
+require("mrwynaut.highlights")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
