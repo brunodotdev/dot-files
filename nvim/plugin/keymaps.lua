@@ -4,6 +4,7 @@ inoremap = remap.inoremap
 vnoremap = remap.vnoremap
 xnoremap = remap.xnoremap
 
+vim.g.mapleader = " "
 
 -- Unbindings
 nnoremap("J", "<Nop>")

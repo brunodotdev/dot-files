@@ -3,17 +3,30 @@ if not has_lsp then return end
 
 -- lsp's keybindings
 local on_attach = function(client, bufnr)
-  local opts = { noremap = true, silent = true }
+  local opts = { buffer = bufnr, noremap = true, silent = true }
   local buf = vim.api.nvim_buf_set_keymap
+  local nnoremap = require("mrwynaut.remap").nnoremap
+
+  -- nnoremap('<leader>d', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  nnoremap('<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  nnoremap('<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  nnoremap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  nnoremap('[d', '<cmd>lua vim.diagnostic.goto_next({border = "rounded"})<CR>', opts)
+  nnoremap(']d', '<cmd>lua vim.diagnostic.goto_prev({border = "rounded"})<CR>', opts)
+  nnoremap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  nnoremap('gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  nnoremap('gh', '<cmd>lua vim.diagnostic.open_float({border = "rounded"})<CR>', opts)
+
+
   -- buf(bufnr, 'n', '<leader>d', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf(bufnr, 'n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_next({border = "rounded"})<CR>', opts)
-  buf(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_prev({border = "rounded"})<CR>', opts)
-  buf(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf(bufnr, 'n', 'gh', '<cmd>lua vim.diagnostic.open_float({border = "rounded"})<CR>', opts)
+  -- buf(bufnr, 'n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  -- buf(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  -- buf(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  -- buf(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_next({border = "rounded"})<CR>', opts)
+  -- buf(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_prev({border = "rounded"})<CR>', opts)
+  -- buf(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  -- buf(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  -- buf(bufnr, 'n', 'gh', '<cmd>lua vim.diagnostic.open_float({border = "rounded"})<CR>', opts)
 
   -- Format config
   local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })

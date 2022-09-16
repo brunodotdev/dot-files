@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.scriptencoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.encoding = "utf-8"
@@ -37,3 +35,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.whichwrap:append "h,l"
+
+vim.g.netrw_banner = 0
+vim.g.netrw_browse_split = 0
+vim.g.netrw_winsize = 25

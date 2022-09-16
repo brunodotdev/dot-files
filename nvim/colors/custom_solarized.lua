@@ -75,7 +75,7 @@ colorscheme.loadHighlights({
   pmenusbar = { base02 },
   pmenuthumb = { base0, transparent },
   visual = { base01, base03, "bold,underline" },
-  endofbuffer = { base01 },
+  endofbuffer = { base00 },
   underlined = { transparent, "underline" },
   spellbad = { transparent, "undercurl" },
   spellcap = { transparent, "undercurl" },

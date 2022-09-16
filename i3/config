@@ -14,6 +14,9 @@ set $mod Mod1
 # Better keyboard response
 exec --no-startup-id xset r rate 200 50
 
+# Transparency FTW
+exec --no-startup-id picom -b
+
 # Gaps
 gaps inner 5
 gaps outer 5

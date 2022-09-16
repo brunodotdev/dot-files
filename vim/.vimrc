@@ -33,3 +33,11 @@ set confirm
 let mapleader=" "
 nnoremap H ^
 nnoremap L $
+
+nnoremap <leader>wj <C-w>s
+nnoremap <leader>wl <C-w>v
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l

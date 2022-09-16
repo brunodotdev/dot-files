@@ -11,8 +11,9 @@ local function bind(op, outer_opts)
 end
 
 M.nnoremap = bind("n")
-M.inoremap = bind("n")
-M.vnoremap = bind("n")
-M.xnoremap = bind("n")
+M.inoremap = bind("i")
+M.vnoremap = bind("v")
+M.xnoremap = bind("x")
+M.tnoremap = bind("t")
 
 return M
