@@ -1,18 +1,8 @@
-local function bind(op, outer_opts)
-  outer_opts = outer_opts or { noremap = true }
-  return function(lhs, rhs, opts)
-    opts = vim.tbl_extend("force",
-      outer_opts,
-      opts or {}
-    )
-    vim.keymap.set(op, lhs, rhs, opts)
-  end
-end
-
-local nnoremap = bind("n")
-local inoremap = bind("n")
-local vnoremap = bind("n")
-local xnoremap = bind("n")
+local remap = require("mrwynaut.remap")
+nnoremap = remap.nnoremap
+inoremap = remap.inoremap
+vnoremap = remap.vnoremap
+xnoremap = remap.xnoremap
 
 
 -- Unbindings
@@ -51,10 +41,14 @@ vnoremap("<leader>y", "\"+y")
 -- Replace word under cursor
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left><C-w>")
 
+-- Move to beginning and eol
+nnoremap("H", "^")
+nnoremap("L", "$")
+
 -- Move text up and down in visual mode
 vnoremap("J", ":m '>+1<cr>gv=gv")
 vnoremap("K", ":m '<-2<cr>gv=gv")
 
 -- Stay in indent mode visual mode
-vnoremap(">>", ">gv")
-vnoremap("<<", "<gv")
+vnoremap("<Tab>", ">gv")
+vnoremap("<S-Tab>", "<gv")

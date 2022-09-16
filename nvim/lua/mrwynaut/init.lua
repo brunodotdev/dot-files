@@ -1,7 +1,5 @@
 require("mrwynaut.plugins")
-require("mrwynaut.options")
-require("mrwynaut.keymaps")
-require("mrwynaut.lsp")
+require("mrwynaut.remap")
 require("mrwynaut.highlights")
 
 vim.cmd [[ colorscheme custom_solarized ]]
