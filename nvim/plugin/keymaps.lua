@@ -1,12 +1,14 @@
 local remap = require("mrwynaut.remap")
-nnoremap = remap.nnoremap
-inoremap = remap.inoremap
-vnoremap = remap.vnoremap
-xnoremap = remap.xnoremap
+local nnoremap = remap.nnoremap
+local inoremap = remap.inoremap
+local vnoremap = remap.vnoremap
+local xnoremap = remap.xnoremap
 
 vim.g.mapleader = " "
 
 -- Unbindings
+nnoremap("qq", "<Nop>")
+nnoremap("Q", "<Nop>")
 nnoremap("J", "<Nop>")
 inoremap("<C-p>", "<Nop>")
 
@@ -39,12 +41,26 @@ nnoremap("<Right>", "zl")
 nnoremap("<leader>y", "\"+yy")
 vnoremap("<leader>y", "\"+y")
 
+-- Paste from clipboard
+nnoremap("<leader>p", "\"+p")
+
+-- ThePrimeagen greatest remap ever
+vnoremap("<leader>p", "\"_dP")
+
+-- Send to the void
+nnoremap("x", "\"_x")
+nnoremap("<leader>d", "\"_dd")
+vnoremap("<leader>d", "\"_d")
+
 -- Replace word under cursor
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left><C-w>")
 
 -- Move to beginning and eol
+-- I found that these mapping are very useful for me
 nnoremap("H", "^")
 nnoremap("L", "$")
+xnoremap("H", "^")
+xnoremap("L", "$h")
 
 -- Move text up and down in visual mode
 vnoremap("J", ":m '>+1<cr>gv=gv")

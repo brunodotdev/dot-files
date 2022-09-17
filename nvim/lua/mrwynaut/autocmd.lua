@@ -14,3 +14,14 @@ autocmd({ "CmdlineLeave" }, {
   pattern = "*",
   command = ":set nohlsearch"
 })
+
+autocmd({ "TextYankPost" }, {
+  group = mrwynaut,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 40,
+    })
+  end,
+})
