@@ -1,3 +1,5 @@
+-- ThePrimeagen's remap function
+
 local M = {}
 local function bind(op, outer_opts)
   outer_opts = outer_opts or { noremap = true }

@@ -35,6 +35,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.whichwrap:append "h,l"
+vim.g.history = 50
 
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0

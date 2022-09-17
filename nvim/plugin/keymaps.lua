@@ -56,7 +56,7 @@ vnoremap("<leader>d", "\"_d")
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left><C-w>")
 
 -- Move to beginning and eol
--- I found that these mapping are very useful for me
+-- I found that these mapping are very useful to me
 nnoremap("H", "^")
 nnoremap("L", "$")
 xnoremap("H", "^")
