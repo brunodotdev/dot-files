@@ -1,23 +1,55 @@
-local has_ts, ts = pcall(require, 'nvim-treesitter.configs')
-if not has_ts then return end
+require("nvim-treesitter.configs").setup {
+    ensure_installed = {
+        "c",
+        "cpp",
+        "css",
+        "html",
+        "javascript",
+        "lua",
+        "python",
+    },
+    sync_install = false,
 
-ts.setup {
-  highlight = {
+    highlight = {
+        enable = true,
+        disable = {},
+        additional_vim_regex_highlighting = false,
+    },
+
+    indent = {
+        enable = false,
+        disable = {},
+    },
+
+    autotag = {
+        enable = true,
+    },
+}
+
+require("treesitter-context").setup {
     enable = true,
-    disable = {},
-  },
+    max_lines = 0,
+    trim_scope = "outer",
+    min_window_height = 0,
+    patterns = {
+        default = {
+            "class",
+            "function",
+            "method",
+            "for",
+            "while",
+            "if",
+            "switch",
+            "case",
+        },
 
-  indent = {
-    enable = false,
-    disable = {},
-  },
+        markdown = {
+            "section",
+        },
 
-  ensure_installed = {
-    'python',
-    'lua',
-  },
-
-  autotag = {
-    enable = true,
-  },
+        json = {
+            "pair",
+        },
+    },
+    mode = "topline",
 }

@@ -55,7 +55,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# gnome-terminal because I installed i3-gaps on a fedora workstation
+# Why not?
 bindsym $mod+Return exec --no-startup-id gnome-terminal
 
 # start a browser
