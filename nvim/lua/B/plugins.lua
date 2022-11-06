@@ -17,12 +17,17 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim"
     use "nvim-lua/plenary.nvim"
     use "nvim-lualine/lualine.nvim"
-    use "kyazdani42/nvim-web-devicons"
+    use "nvim-tree/nvim-web-devicons"
     use "windwp/nvim-autopairs"
+    use "lewis6991/gitsigns.nvim"
 
     -- treesitter
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/nvim-treesitter-context"
+
+    -- telescope
+    use "nvim-telescope/telescope.nvim"
+    use "nvim-telescope/telescope-file-browser.nvim"
 
     -- lsp
     use "williamboman/mason.nvim"
@@ -36,6 +41,5 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-nvim-lsp"
     use "L3MON4D3/LuaSnip"
-
 
 end)

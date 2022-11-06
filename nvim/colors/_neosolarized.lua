@@ -66,10 +66,10 @@ hl.loadHighlights({
     Folded = { base0, base02, "bold", base03 },
     FoldColumn = { base0, base02 },
 
-    DiffAdd = { green, base02, "bold", green },
-    DiffChange = { yellow, base02, "bold", yellow },
-    DiffDelete = { red, base02, "bold" },
-    DiffText = { blue, base02, "bold", blue },
+    DiffAdd = { green, "bold", green },
+    DiffChange = { yellow, "bold", yellow },
+    DiffDelete = { red, "bold" },
+    DiffText = { blue, "bold", blue },
 
     SignColumn = { transparent },
     Conceal = { blue },
@@ -92,7 +92,7 @@ hl.loadHighlights({
     TabLineSel = { yellow, transparent },
 
     LineNr = { base01 },
-    CursorLine = { transparent, base03, base1 },
+    CursorLine = { transparent },
     CursorLineNr = { yellow, black, base1 },
     ColorColumn = { transparent, base02 },
     Cursor = { base03, base0 },
@@ -155,4 +155,21 @@ hl.loadHighlights({
     CmpItemKindOperator = { cyan },
     CmpItemKindTypeParameter = { orange },
 
+    -- Git Signs
+    GitSignsAddLn = { green },
+    GitSignsAddNr = { green },
+    GitSignsChangeLn = { yellow },
+    GitSignsChangeNr = { yellow },
+    GitSignsDeleteLn = { red },
+    GitSignsDeleteNr = { red },
+    GitSignsCurrentLineBlame = { base01 },
+
+    -- Telescope
+    TelescopeMatching = { orange },
+    TelescopeBorder = { base01 },
+    TelescopePromptBorder = { cyan },
+    TelescopeTitle = { transparent },
+    TelescopePromptPrefix = { transparent },
+    TelescopeSelection = { cyan },
+    TelescopeSelectionCaret = { cyan },
 })

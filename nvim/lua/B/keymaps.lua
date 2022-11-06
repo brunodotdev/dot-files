@@ -14,9 +14,6 @@ map("n", "<leader>j", "<C-w>j", opts)
 map("n", "<leader>k", "<C-w>k", opts)
 map("n", "<leader>l", "<C-w>l", opts)
 
--- open explorer (netrw)
-map("n", "<leader>e", "<Cmd>Ex<CR>", opts)
-
 -- copy to clipboard
 map("n", "<leader>y", "\"+yy", opts)
 map("v", "<leader>y", "\"+y", opts)

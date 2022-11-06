@@ -27,7 +27,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     width = 50,
 })
 
-local on_attach = function(client)
+local on_attach = function(client, bufnr)
     local map = vim.keymap.set
     local opts = { noremap = true, silent = true }
 
@@ -35,38 +35,40 @@ local on_attach = function(client)
     map("n", "gd", function() vim.lsp.buf.definition() end, opts)
     map("n", "gi", function() vim.lsp.buf.implementation() end, opts)
     map("n", "gr", function() vim.lsp.buf.references() end, opts)
-    map("n", "<leader>f", function() vim.lsp.buf.formatting() end, opts)
     map("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
+    map("n", "<leader>f", function() vim.lsp.buf.format({ bufnr = bufnr }) end, opts)
     map("n", "[d", function() vim.diagnostic.goto_next({ border = "rounded" }) end)
     map("n", "]d", function() vim.diagnostic.goto_prev({ border = "rounded" }) end)
     map("n", "gh", function() vim.diagnostic.open_float({ border = "rounded" }) end, opts)
 
-    -- format on save
-    local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-    if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
+    -- format on save with lsp's source
+    if client.supports_method("textDocument/formatting") then
+        local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+        vim.api.nvim_clear_autocmds { group = augroup_format, buffer = 0 }
         vim.api.nvim_create_autocmd({ "BufWritePre" }, {
             group = augroup_format,
-            buffer = 0,
-            callback = function() vim.lsp.buf.format() end
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ bufnr = bufnr })
+            end,
         })
     end
 
     -- diagnostic on hover
-    vim.api.nvim_create_autocmd({ "CursorHold" }, {
-        buffer = 0,
-        callback = function()
-            local float_opts = {
-                focusable = false,
-                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-                border = "rounded",
-                source = "always",
-                prefix = "",
-                scope = "cursor",
-            }
-            vim.diagnostic.open_float(nil, float_opts)
-        end
-    })
+    -- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+    --     buffer = 0,
+    --     callback = function()
+    --         local float_opts = {
+    --             focusable = false,
+    --             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    --             border = "rounded",
+    --             source = "always",
+    --             prefix = "",
+    --             scope = "cursor",
+    --         }
+    --         vim.diagnostic.open_float(nil, float_opts)
+    --     end
+    -- })
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
