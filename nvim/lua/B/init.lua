@@ -1,6 +1,6 @@
 require("B.options")
 require("B.keymaps")
-require("B.plugins")
+require("B.packer")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -15,6 +15,13 @@ autocmd({ "TextYankPost" }, {
             timeout = 40,
         })
     end,
+})
+
+local autosync = augroup("PackerSync", { clear = true })
+autocmd({ "BufWritePost" }, {
+    group = autosync,
+    pattern = "packer.lua",
+    command = "source <afile> | PackerSync",
 })
 
 vim.cmd("colorscheme _neosolarized")

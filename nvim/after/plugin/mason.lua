@@ -1,3 +1,5 @@
+if not pcall(require, "mason") then return end
+
 -- automatically install servers
 require("mason").setup {
     ui = {
@@ -8,11 +10,6 @@ require("mason").setup {
             package_uninstalled = '✗',
         }
     },
-
-    ensure_installed = {
-        "sumneko_lua",
-        "pyright",
-    }
 }
 
 require("mason-lspconfig").setup_handlers {

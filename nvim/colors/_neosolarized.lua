@@ -1,3 +1,5 @@
+-- Colors palette from github.com/svrana/neosolarized
+
 local constructColor = function(color)
     return { gui = color }
 end

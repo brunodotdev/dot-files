@@ -1,26 +1,15 @@
-local file_type_icon = function(filetype)
-    return require("nvim-web-devicons").get_icon_by_filetype(filetype)
-end
+if not pcall(require, "lualine") then return end
 
 local filename = {
     "filename",
     file_status = true,
     path = 0,
-    symbols = {
-        modified = "",
-        readonly = "",
-        unnamed = "",
-        newfile = "",
-    }
 }
 
 local filetype = {
     "filetype",
     colored = true,
     icon_only = true,
-    icon = {
-        file_type_icon { "filename", align = "left" }
-    }
 }
 
 local mode = {
@@ -56,11 +45,6 @@ local branch = {
     icon = "",
 }
 
-local tabs = {
-    "tabs",
-    mode = 0,
-}
-
 require("lualine").setup {
     options = {
         icons_enabled = true,
@@ -73,29 +57,21 @@ require("lualine").setup {
     },
 
     sections = {
-        lualine_a = { filetype, filename },
-        lualine_b = { mode },
-        lualine_c = { branch, diff },
-        lualine_x = { "encoding" },
+        lualine_a = { mode },
+        lualine_b = { branch },
+        lualine_c = { filetype, filename },
+        lualine_x = { diff, "encoding" },
         lualine_y = { diagnostics },
         lualine_z = { "fileformat" },
     },
 
     inactive_sections = {
-        lualine_a = { "filename" },
+        lualine_a = {},
         lualine_b = {},
-        lualine_c = {},
+        lualine_c = { filetype, filename },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
     },
 
-    tabline = {
-        lualine_a = { tabs, filetype, filename },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-    }
 }

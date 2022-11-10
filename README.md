@@ -1,3 +1,3 @@
 ## DOTFILES
 
-Do having a `.config` repo makes me more of a developer?
+Always aiming for the best setting possible and miserably failing.

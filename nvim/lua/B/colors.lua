@@ -1,5 +1,11 @@
 local M = {}
 
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5
+
 M.loadHighlights = function(highlights)
     local function setHighlights(group, args)
         local fg = args[1]

@@ -1,5 +1,6 @@
--- general configuration for lsp
+if not pcall(require, "lspconfig") then return end
 
+-- general configuration for lsp
 local signs = {
     Error = ' ',
     Warn = ' ',
@@ -54,21 +55,6 @@ local on_attach = function(client, bufnr)
         })
     end
 
-    -- diagnostic on hover
-    -- vim.api.nvim_create_autocmd({ "CursorHold" }, {
-    --     buffer = 0,
-    --     callback = function()
-    --         local float_opts = {
-    --             focusable = false,
-    --             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-    --             border = "rounded",
-    --             source = "always",
-    --             prefix = "",
-    --             scope = "cursor",
-    --         }
-    --         vim.diagnostic.open_float(nil, float_opts)
-    --     end
-    -- })
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())

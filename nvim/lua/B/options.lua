@@ -1,49 +1,30 @@
-local g = vim.g
-local opt = vim.opt
+vim.opt.guicursor = ""
+vim.opt.textwidth = 80
+vim.opt.showmode = false
 
-g.history = 50
-g.mapleader = " "
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
 
-opt.showtabline = 2
-opt.guicursor = ""
-opt.termguicolors = true
-opt.background = "dark"
-opt.winblend = 0
-opt.wildoptions = "pum"
-opt.pumblend = 5
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 
-opt.number = true
-opt.relativenumber = true
-opt.numberwidth = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
-opt.showmatch = true
-opt.signcolumn = "yes"
-opt.ruler = false
+vim.opt.scrolloff = 7
+vim.opt.sidescrolloff = 7
+vim.opt.wrap = false
 
-opt.textwidth = 100
-opt.ignorecase = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.writebackup = false
 
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
-opt.smartindent = true
+vim.opt.updatetime = 50
+vim.opt.timeoutlen = 200
+vim.opt.lazyredraw = true
 
-opt.scrolloff = 7
-opt.sidescrolloff = 7
-opt.wrap = false
-
-opt.backup = false
-opt.swapfile = false
-opt.writebackup = false
-
-opt.updatetime = 50
-opt.timeoutlen = 200
-opt.lazyredraw = true
-
-opt.splitbelow = true
-opt.splitright = true
-
-opt.whichwrap:append "h,l"
-opt.matchpairs:append "<:>"
-opt.shortmess:append "c"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
