@@ -1,7 +1,8 @@
-local lspkind = require("lspkind")
+if not pcall(require, "cmp") then return end
 local cmp = require("cmp")
+local lspkind = require("lspkind")
 
-local skipComments = function()
+local skipcomments = function()
     local context = require("cmp.config/context")
     if vim.api.nvim_get_mode().mode == "c" then
         return true
@@ -12,7 +13,7 @@ local skipComments = function()
 end
 
 cmp.setup {
-    enabled = skipComments,
+    enabled = skipcomments,
     snippet = {
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -25,10 +26,10 @@ cmp.setup {
     },
 
     mapping = cmp.mapping.preset.insert({
+        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
     }),
 
     sources = cmp.config.sources({
@@ -45,6 +46,3 @@ cmp.setup {
         })
     },
 }
-
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))

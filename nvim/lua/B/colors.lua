@@ -1,38 +1,46 @@
-local M = {}
+local theme = "catppuccin"
 
-vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.opt.winblend = 0
-vim.opt.wildoptions = "pum"
-vim.opt.pumblend = 5
+vim.opt.termguicolors = true
+vim.opt.winblend = 15
+vim.opt.pumblend = 15
 
-M.loadHighlights = function(highlights)
-    local function setHighlights(group, args)
-        local fg = args[1]
-        local bg = { gui = "None" }
-        local attrs
+require("catppuccin").setup({
+    transparent_background = true,
+})
 
-        if type(args[2]) == "table" then
-            bg = args[2]
-            if type(args[3]) == "string" then
-                attrs = args[3]
-            end
-        elseif type(args[2]) == "string" then
-            attrs = args[2]
-        end
+require("rose-pine").setup({
+    dark_variant = "main",
+    disable_background = true,
+    disable_italics = true,
+})
 
-        local args = { fg = fg.gui, bg = bg.gui }
-        if attrs then
-            for val in vim.gsplit(attrs, ",") do
-                args[val] = true
-            end
-        end
-        vim.api.nvim_set_hl(0, group, args)
-    end
+require("tokyonight").setup({
+    transparent = true,
+})
 
-    for group, groupArgs in pairs(highlights) do
-        setHighlights(group, groupArgs)
-    end
+local hl = function(group, opts)
+    vim.api.nvim_set_hl(0, group, opts)
 end
 
-return M
+hl("Normal", {
+    bg = "none",
+})
+
+hl("SignColumn", {
+    bg = "none",
+})
+
+hl("ColorColumn", {
+    bg = "none",
+})
+
+hl("CursorLineNR", {
+    bg = "none",
+})
+
+hl("LineNR", {
+    bg = "#5EACD3",
+})
+
+vim.cmd("colorscheme " .. theme)

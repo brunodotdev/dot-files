@@ -1,20 +1,9 @@
 if not pcall(require, "lualine") then return end
 
-local filename = {
-    "filename",
-    file_status = true,
-    path = 0,
-}
-
 local filetype = {
     "filetype",
     colored = true,
     icon_only = true,
-}
-
-local mode = {
-    "mode",
-    icons_enabled = true,
 }
 
 local diagnostics = {
@@ -39,27 +28,19 @@ local diff = {
     symbols = { added = " ", modified = " ", removed = " " },
 }
 
-local branch = {
-    "branch",
-    icons_enabled = true,
-    icon = "",
-}
-
 require("lualine").setup {
     options = {
         icons_enabled = true,
-        theme = "solarized_dark",
+        theme = "catppuccin",
         component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = { "text" },
-        always_divide_middle = true,
-        globalstatus = false,
+        section_separators = { left = "", right = "" },
+        padding = 2,
     },
 
     sections = {
-        lualine_a = { mode },
-        lualine_b = { branch },
-        lualine_c = { filetype, filename },
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { filetype, "filename" },
         lualine_x = { diff, "encoding" },
         lualine_y = { diagnostics },
         lualine_z = { "fileformat" },
@@ -68,10 +49,9 @@ require("lualine").setup {
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { filetype, filename },
+        lualine_c = { filetype, "filename" },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
     },
-
 }

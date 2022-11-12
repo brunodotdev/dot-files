@@ -1,6 +1,6 @@
-require("B.options")
-require("B.keymaps")
 require("B.packer")
+require("B.opts")
+require("B.colors")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -23,5 +23,3 @@ autocmd({ "BufWritePost" }, {
     pattern = "packer.lua",
     command = "source <afile> | PackerSync",
 })
-
-vim.cmd("colorscheme _neosolarized")

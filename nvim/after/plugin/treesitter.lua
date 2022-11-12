@@ -1,15 +1,7 @@
 if not pcall(require, "nvim-treesitter.configs") then return end
 
 require("nvim-treesitter.configs").setup {
-    ensure_installed = {
-        "c",
-        "cpp",
-        "css",
-        "html",
-        "javascript",
-        "lua",
-        "python",
-    },
+    ensure_installed = "all",
     sync_install = false,
 
     highlight = {
@@ -17,41 +9,14 @@ require("nvim-treesitter.configs").setup {
         disable = {},
         additional_vim_regex_highlighting = false,
     },
-
-    indent = {
-        enable = false,
-        disable = {},
-    },
-
-    autotag = {
-        enable = true,
-    },
 }
 
-require("treesitter-context").setup {
+if not pcall(require, "nvim-treesitter-context") then return end
+
+require("nvim-treesitter-context").setup {
     enable = true,
-    max_lines = 0,
-    trim_scope = "outer",
-    min_window_height = 0,
-    patterns = {
-        default = {
-            "class",
-            "function",
-            "method",
-            "for",
-            "while",
-            "if",
-            "switch",
-            "case",
-        },
-
-        markdown = {
-            "section",
-        },
-
-        json = {
-            "pair",
-        },
-    },
+    throttle = true, -- Throttles plugin updates (mauy improve performance)
+    min_window_height = 0, -- How many lines the window should span. Values <= 0 means no limit.
     mode = "topline",
 }
+
