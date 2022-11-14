@@ -1,7 +1,7 @@
 local remap = require("B.remap")
-local nnoremap = remap.nnoremap
-local vnoremap = remap.vnoremap
-local xnoremap = remap.xnoremap
+local nnoremap = remap.bind("n")
+local vnoremap = remap.bind("v")
+local xnoremap = remap.bind("x")
 
 vim.g.mapleader = " "
 
@@ -20,15 +20,15 @@ nnoremap("<leader>y", "\"+yy")
 vnoremap("<leader>y", "\"+y")
 
 -- paste to clipboard
-nnoremap("<leader>p", "\"+pp")
+nnoremap("<leader>p", "\"+p")
 vnoremap("<leader>p", "\"+p")
 
 -- select paste don't update yank register
 xnoremap("<leader>dp", "\"_dP")
 
 -- replace occurrences under cursor
-nnoremap("<leader>s", ":%s/\\<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left><C-w>")
+nnoremap("<leader>s", ":%s/\\<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>")
 
 -- move text up and down
 vnoremap("K", ":m '<-2<cr>gv=gv")
-vnoremap("J", ":m '<+1<cr>gv=gv")
+vnoremap("J", ":m '>+1<cr>gv=gv")

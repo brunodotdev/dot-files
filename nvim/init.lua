@@ -1,2 +1,2 @@
--- Minimal configuration for Neovim
+-- B for Bubbles
 require("B")

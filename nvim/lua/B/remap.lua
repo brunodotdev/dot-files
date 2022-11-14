@@ -8,10 +8,6 @@ local mode = function(op, outer_opts)
 	end
 end
 
-M.nnoremap = mode("n")
-M.vnoremap = mode("v")
-M.xnoremap = mode("x")
-M.inoremap = mode("i")
-M.bufremap = mode("n", { noremap = true, buffer = 0})
+M.bind = mode
 
 return M

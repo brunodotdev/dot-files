@@ -1,7 +1,7 @@
 if not pcall(require, "telescope") then return end
 
 local remap = require("B.remap")
-local nnoremap = remap.nnoremap
+local nnoremap = remap.bind("n")
 local builtin = require("telescope.builtin")
 
 local telescope = require("telescope")
