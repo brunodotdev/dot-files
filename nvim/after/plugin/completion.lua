@@ -3,7 +3,7 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 local skipcomments = function()
-    local context = require("cmp.config/context")
+    local context = require("cmp.config.context")
     if vim.api.nvim_get_mode().mode == "c" then
         return true
     else

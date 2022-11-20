@@ -1,6 +1,6 @@
 require("B.packer")
 require("B.opts")
-require("B.colors")
+require("B.theme").set("catppuccin")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd

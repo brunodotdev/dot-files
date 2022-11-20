@@ -12,8 +12,13 @@ nnoremap("<leader>;", function()
 	else
 		vim.opt_local.wrap = true
 	end
-end
-)
+end)
+
+-- source file
+nnoremap("<leader>\\", function()
+    vim.cmd [[source %]]
+    print("SOURCED!!")
+end)
 
 -- copy to clipboard
 nnoremap("<leader>y", "\"+yy")
@@ -23,8 +28,11 @@ vnoremap("<leader>y", "\"+y")
 nnoremap("<leader>p", "\"+p")
 vnoremap("<leader>p", "\"+p")
 
--- select paste don't update yank register
+-- select & paste don't update yank register
 xnoremap("<leader>dp", "\"_dP")
+
+-- open netwr
+nnoremap("<leader>x", "<cmd>Ex<cr>")
 
 -- replace occurrences under cursor
 nnoremap("<leader>s", ":%s/\\<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>")

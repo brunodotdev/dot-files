@@ -42,9 +42,7 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- colorscheme section
-    use("folke/tokyonight.nvim")
+    -- colorscheme
     use("catppuccin/nvim")
-    use("rose-pine/neovim")
 
 end)

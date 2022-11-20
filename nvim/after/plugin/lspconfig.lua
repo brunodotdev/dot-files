@@ -28,26 +28,26 @@ vim.diagnostic.config({
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
-    -- Use a sharp border with `FloatBorder` highlights
     border = "rounded"
-}
+    }
 )
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
-    -- Use a sharp border with `FloatBorder` highlights
     border = "rounded"
-}
+    }
 )
 
 local config = function(_config)
 
     return vim.tbl_deep_extend("force", {
         on_attach = function()
+
             local opts = { noremap = true, silent = true, buffer = 0 }
             local remap = require("B.remap")
             local bufnmap = remap.bind("n", opts)
             local bufimap = remap.bind("i", opts)
+
             bufimap("<C-g>", function() vim.lsp.buf.signature_help() end)
             bufnmap("K", function() vim.lsp.buf.hover() end)
             bufnmap("gd", function() vim.lsp.buf.definition() end)

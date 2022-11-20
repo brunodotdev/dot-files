@@ -1,10 +1,11 @@
 vim.opt.guicursor = ""
 vim.opt.showmode = false
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.mouse = "a"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 
 vim.opt.backup = false
 vim.opt.swapfile = false
@@ -28,4 +29,3 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.opt.clipboard:append("unnamed")
-
