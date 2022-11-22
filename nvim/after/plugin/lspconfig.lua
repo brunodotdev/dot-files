@@ -67,4 +67,5 @@ end
 
 lspconfig.clangd.setup(config())
 lspconfig.pyright.setup(config())
+lspconfig.rust_analyzer.setup(config(require("lsp.servers.rust_analyzer")))
 lspconfig.sumneko_lua.setup(config(require("lsp.servers.sumneko_lua")))

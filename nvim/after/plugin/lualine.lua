@@ -1,10 +1,28 @@
 if not pcall(require, "lualine") then return end
 
+local mode = function()
+    return vim.api.nvim_get_mode().mode
+end
+
+local lsp = function()
+    if vim.lsp.buf.server_ready() then
+        return "LSP: ON"
+    end
+    return "LSP: OFF"
+end
+
 local filetype = {
     "filetype",
     colored = true,
-    icon_only = true,
+    icon_only = false,
 }
+
+local filename = {
+    "filename",
+    file_status = true,
+    path = 1,
+}
+
 
 local diagnostics = {
     "diagnostics",
@@ -31,26 +49,25 @@ local diff = {
 require("lualine").setup {
     options = {
         icons_enabled = true,
-        theme = "auto",
+        theme = "catppuccin",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        padding = 2,
     },
 
     sections = {
-        lualine_a = { "mode" },
+        lualine_a = { mode },
         lualine_b = { "branch" },
-        lualine_c = { filetype, "filename" },
-        lualine_x = { diff, "encoding" },
-        lualine_y = { diagnostics },
-        lualine_z = { "fileformat" },
+        lualine_c = { filename, diff },
+        lualine_x = { lsp, diagnostics },
+        lualine_y = { filetype },
+        lualine_z = {},
     },
 
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { filetype, "filename" },
-        lualine_x = {},
+        lualine_c = { "filename" },
+        lualine_x = { filetype },
         lualine_y = {},
         lualine_z = {},
     },
