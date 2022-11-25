@@ -9,9 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod mod1
 
-# Disable borders 
+# Disable windows borders 
 for_window [class="^.*"] border pixel 2
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -27,7 +27,7 @@ font pango:Iosevka Term Regular 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock --$HOME/.config/i3/blur
+# exec --no-startup-id xss-lock --transfer-sleep-lock --$HOME/.config/i3/blur
 bindsym $mod+z exec $HOME/.config/i3/blur
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
@@ -168,32 +168,24 @@ bar {
 }
 
 # Workspaces
-bindsym $mod+i workspace number $ws1
-bindsym $mod+o workspace number $ws2
-bindsym $mod+p workspace number $ws3
-bindsym $mod+braceleft workspace number $ws4
-bindsym $mod+braceright workspace number $ws5
-bindsym $mod+backslash workspace number $ws6
+bindsym $mod+m workspace number $ws1
+bindsym $mod+comma workspace number $ws2
+bindsym $mod+period workspace number $ws3
+bindsym $mod+slash workspace number $ws4
 
 # Move apps through workspaces
-bindsym $mod+Shift+i move container to workspace number $ws1
-bindsym $mod+Shift+o move container to workspace number $ws2
-bindsym $mod+Shift+p move container to workspace number $ws3
-bindsym $mod+Shift+braceleft move container to workspace number $ws4
-bindsym $mod+Shift+braceright move container to workspace number $ws5
-bindsym $mod+Shift+backslash move container to workspace number $ws6
+bindsym $mod+Shift+m move container to workspace number $ws1
+bindsym $mod+Shift+comma move container to workspace number $ws2
+bindsym $mod+Shift+period move container to workspace number $ws3
+bindsym $mod+Shift+slash move container to workspace number $ws4
 
 # Setup screen scale of virtual machine
 exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080
-
 # Better keyboard response
 exec --no-startup-id xset r rate 200 50
-
-# Transparency FTW
+# Let me see through
 exec --no-startup-id picom
-
 # Set wallpaper
 exec --no-startup-id nitrogen --restore
-
 # Screenshot command
-bindsym --release $mod+x exec --no-startup-id $HOME/.config/i3/capture_the_moment.sh
+bindsym --release $mod+x exec --no-startup-id $HOME/.config/i3/capture_the_moment

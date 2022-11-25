@@ -1,0 +1,6 @@
+! Example on how to configure a new modkey
+! Backslash: set as modifier (mod3)
+! set mod3 to backslash key
+keycode 51 = backslash
+clear mod3
+add mod3 = backslash
