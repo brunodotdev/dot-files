@@ -4,11 +4,13 @@ local mode = function()
     return vim.api.nvim_get_mode().mode
 end
 
-local lsp = function()
+local lsp_status = function()
     if vim.lsp.buf.server_ready() then
-        return "LSP: ON"
+        local server_name = vim.lsp.get_active_clients()[1]["name"]
+        local status = "LSP CLIENT: " .. server_name
+        return status
     end
-    return "LSP: OFF"
+    return "LSP UNAVAILABLE"
 end
 
 local filetype = {
@@ -58,9 +60,9 @@ require("lualine").setup {
         lualine_a = { mode },
         lualine_b = { "branch" },
         lualine_c = { filename, diff },
-        lualine_x = { lsp, diagnostics },
-        lualine_y = { filetype },
-        lualine_z = {},
+        lualine_x = { diagnostics, filetype },
+        lualine_y = { lsp_status },
+        lualine_z = { "fileformat" },
     },
 
     inactive_sections = {

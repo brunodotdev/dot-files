@@ -17,7 +17,6 @@ end)
 -- source file
 nnoremap("<leader>\\", function()
     vim.cmd [[source %]]
-    print("SOURCED!!")
 end)
 
 -- copy to clipboard
